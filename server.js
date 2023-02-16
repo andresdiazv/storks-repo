@@ -1,14 +1,17 @@
+const functions = require('firebase-functions');
 const express = require("express");
 const { pool } = require("./dbConfig");
 const bcrypt = require("bcrypt");
 const passport = require("passport");
 const flash = require("express-flash");
 const session = require("express-session");
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
+const admin = require("firebase-admin");
+
 const app = express();
+app.use(cookieParser());
 const path = require("path");
-
-
 
 const PORT = process.env.PORT || 4000;
 
